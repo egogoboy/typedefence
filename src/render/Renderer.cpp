@@ -12,7 +12,7 @@ void Renderer::drawWordEntities(
         float originX =
             bounds.getCenter().x - (float)sfText.getCharacterSize() / 2;
 
-        sfText.setOrigin({originX, bounds.getCenter().y + 10});
+        sfText.setOrigin({originX, bounds.getCenter().y + 15});
         sfText.setPosition({word->getPos().x, word->getPos().y});
         sfText.setFillColor(WORDS_COLOR);
 

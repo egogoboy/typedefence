@@ -17,6 +17,6 @@ class Renderer {
     sf::RenderWindow& window_;
     sf::Font& font_;
 
-    const sf::Color WORDS_COLOR = sf::Color(27, 27, 74);
-    const sf::Color TYPED_WORDS_COLOR = sf::Color(155, 155, 179);
+    const sf::Color WORDS_COLOR = sf::Color(61, 83, 148);
+    const sf::Color TYPED_WORDS_COLOR = sf::Color(1, 23, 88);
 };
