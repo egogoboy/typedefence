@@ -4,7 +4,8 @@
 
 class LivingEntity : public Entity {
    public:
-    LivingEntity(int max_health);
+    LivingEntity(int max_health, const sf::Vector2f& pos,
+                 const sf::Vector2f& velocity);
 
     int getHealth() const;
 
