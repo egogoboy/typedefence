@@ -11,6 +11,8 @@ class WordEntity : public Entity {
 
     const std::string& getText() const;
 
+    char getCurrentLetter() const;
+
     void incTyped();
 
     size_t getTyped() const;
