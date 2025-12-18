@@ -4,6 +4,7 @@
 #include <memory>
 #include <vector>
 
+#include "entities/Player.hpp"
 #include "entities/WordEntity.hpp"
 
 class Renderer {
@@ -12,6 +13,8 @@ class Renderer {
 
     void drawWordEntities(
         const std::vector<std::unique_ptr<WordEntity>>& words_);
+
+    void drawPlayer(const Player& player);
 
    private:
     sf::RenderWindow& window_;

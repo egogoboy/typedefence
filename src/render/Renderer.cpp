@@ -1,5 +1,7 @@
 #include "Renderer.hpp"
 
+#include "entities/Player.hpp"
+
 Renderer::Renderer(sf::RenderWindow& window, sf::Font& font)
     : window_{window}, font_{font} {}
 
@@ -39,4 +41,36 @@ void Renderer::drawWordEntities(
 
         window_.draw(sfCircle);
     }
+}
+
+void Renderer::drawPlayer(const Player& player) {
+    constexpr float outer_radius = 20.f;
+    constexpr float inner_radius = 14.f;
+
+    sf::CircleShape border(outer_radius);
+
+    border.setOrigin({outer_radius, outer_radius});
+    border.setPosition(player.getPos());
+    border.setFillColor(sf::Color::Transparent);
+    border.setOutlineColor(TYPED_WORDS_COLOR);
+    border.setOutlineThickness(2);
+
+    sf::CircleShape inner_body(inner_radius);
+    inner_body.setOrigin({inner_radius, inner_radius});
+    inner_body.setPosition(border.getPosition());
+    inner_body.setFillColor(TYPED_WORDS_COLOR);
+
+    sf::Text health(font_, "", 14);
+    health.setString(std::to_string(player.getHealth()));
+
+    sf::FloatRect bounds = health.getLocalBounds();
+    float originX = bounds.getCenter().x - (float)health.getCharacterSize() / 2;
+
+    health.setOrigin(bounds.getCenter());
+    health.setPosition({border.getPosition().x, border.getPosition().y + 35});
+    health.setFillColor(WORDS_COLOR);
+
+    window_.draw(border);
+    window_.draw(inner_body);
+    window_.draw(health);
 }
