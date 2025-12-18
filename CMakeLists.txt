@@ -13,7 +13,9 @@ add_executable(game
     src/main.cpp
     src/core/Game.cpp
     src/entities/Entity.cpp
+    src/entities/LivingEntity.cpp
     src/entities/WordEntity.cpp
+    src/entities/Player.cpp
     src/render/Renderer.cpp
 )
 
