@@ -13,6 +13,8 @@ class Entity {
     void setVelocity(const sf::Vector2f& new_velocity);
     const sf::Vector2f& getVelocity() const;
 
+    void move();
+
    private:
     sf::Vector2f pos_;
     sf::Vector2f velocity_;
