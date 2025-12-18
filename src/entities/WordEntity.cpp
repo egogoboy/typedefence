@@ -6,7 +6,11 @@ WordEntity::WordEntity(const std::string& text, const sf::Vector2f& position,
 
 const std::string& WordEntity::getText() const { return text_; }
 
-void WordEntity::incTyped() { ++typed_; }
+void WordEntity::incTyped() {
+    if (typed_ <= text_.size()) {
+        ++typed_;
+    }
+}
 
 size_t WordEntity::getTyped() const { return typed_; }
 
