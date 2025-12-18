@@ -1,0 +1,13 @@
+#include "WordEntity.hpp"
+
+WordEntity::WordEntity(const std::string& text, const sf::Vector2f& position,
+                       const sf::Vector2f& velocity)
+    : text_{text}, Entity(position, velocity) {}
+
+const std::string& WordEntity::getText() const { return text_; }
+
+void WordEntity::incTyped() { ++typed_; }
+
+size_t WordEntity::getTyped() const { return typed_; }
+
+void WordEntity::flushTyped() { typed_ = 0; }
