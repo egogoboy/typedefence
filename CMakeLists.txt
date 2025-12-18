@@ -14,6 +14,7 @@ add_executable(game
     src/core/Game.cpp
     src/entities/Entity.cpp
     src/entities/WordEntity.cpp
+    src/render/Renderer.cpp
 )
 
 target_link_libraries(game
@@ -21,4 +22,9 @@ target_link_libraries(game
         SFML::Graphics
         SFML::Window
         SFML::System
+)
+
+add_custom_command(TARGET game POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/assets $<TARGET_FILE_DIR:game>/assets
 )
