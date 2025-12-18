@@ -8,6 +8,9 @@ find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System)
 
 add_executable(game
     src/main.cpp
+    src/core/Game.cpp
+    src/entities/Entity.cpp
+    src/entities/WordEntity.cpp
 )
 
 target_link_libraries(game
