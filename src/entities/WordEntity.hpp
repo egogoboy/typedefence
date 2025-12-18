@@ -2,9 +2,9 @@
 
 #include <string>
 
-#include "Entity.hpp"
+#include "entities/LivingEntity.hpp"
 
-class WordEntity : public Entity {
+class WordEntity : public LivingEntity {
    public:
     explicit WordEntity(const std::string& text, const sf::Vector2f& position,
                         const sf::Vector2f& velocity);

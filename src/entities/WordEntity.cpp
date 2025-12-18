@@ -2,7 +2,7 @@
 
 WordEntity::WordEntity(const std::string& text, const sf::Vector2f& position,
                        const sf::Vector2f& velocity)
-    : text_{text}, Entity(position, velocity) {}
+    : text_{text}, LivingEntity(100, position, velocity) {}
 
 const std::string& WordEntity::getText() const { return text_; }
 
