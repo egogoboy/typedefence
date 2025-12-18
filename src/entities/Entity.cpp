@@ -17,4 +17,4 @@ void Entity::setVelocity(const sf::Vector2f& new_velocity) {
 
 const sf::Vector2f& Entity::getVelocity() const { return this->velocity_; }
 
-void Entity::move() { pos_ += velocity_; }
+void Entity::move(float dt) { pos_ += velocity_ * dt; }

@@ -7,13 +7,15 @@ class Entity {
     Entity();
     Entity(const sf::Vector2f& pos, const sf::Vector2f velocity);
 
+    virtual ~Entity() = default;
+
     void setPos(const sf::Vector2f& new_pos);
     const sf::Vector2f& getPos() const;
 
     void setVelocity(const sf::Vector2f& new_velocity);
     const sf::Vector2f& getVelocity() const;
 
-    void move();
+    void move(float dt);
 
    private:
     sf::Vector2f pos_;
