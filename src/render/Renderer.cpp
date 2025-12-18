@@ -6,12 +6,37 @@ Renderer::Renderer(sf::RenderWindow& window, sf::Font& font)
 void Renderer::drawWordEntities(
     const std::vector<std::unique_ptr<WordEntity>>& words_) {
     for (auto& word : words_) {
-        const std::string& text = word->getText();
+        sf::Text sfText(font_, word->getText(), 16);
 
-        sf::Text sfText(font_, text, 48);
-        sfText.setPosition(word->getPos());
-        sfText.setFillColor(sf::Color::Black);
+        sf::FloatRect bounds = sfText.getLocalBounds();
+        float originX =
+            bounds.getCenter().x - (float)sfText.getCharacterSize() / 2;
+
+        sfText.setOrigin({originX, bounds.getCenter().y + 10});
+        sfText.setPosition({word->getPos().x, word->getPos().y});
+        sfText.setFillColor(WORDS_COLOR);
 
         window_.draw(sfText);
+
+        if (word->getTyped() != 0) {
+            sf::Text sfTypedText(
+                font_,
+                std::string(word->getText().begin(),
+                            word->getText().begin() + word->getTyped()),
+                sfText.getCharacterSize());
+
+            sfTypedText.setOrigin(sfText.getOrigin());
+
+            sfTypedText.setPosition(sfText.getPosition());
+            sfTypedText.setFillColor(TYPED_WORDS_COLOR);
+
+            window_.draw(sfTypedText);
+        }
+
+        sf::CircleShape sfCircle(8);
+        sfCircle.setPosition(word->getPos());
+        sfCircle.setFillColor(WORDS_COLOR);
+
+        window_.draw(sfCircle);
     }
 }
