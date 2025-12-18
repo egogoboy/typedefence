@@ -4,7 +4,7 @@
 
 #include "Entity.hpp"
 
-class WordEntity : Entity {
+class WordEntity : public Entity {
    public:
     explicit WordEntity(const std::string& text, const sf::Vector2f& position,
                         const sf::Vector2f& velocity);
